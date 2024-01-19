@@ -19,12 +19,12 @@ namespace MoreVaccing.Harmony.Feral
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var instrs = instructions.ToList();
+            object stloc = null;
             for (int i = 0; i < instrs.Count; i++)
             {
                 var instr = instrs[i];
                 yield return instr;
 
-                object stloc = null;
                 if (instr.operand is MethodInfo ia && ia.Name == "InstantiateActor")
                 {
                     i++;

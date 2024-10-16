@@ -1,11 +1,6 @@
 ﻿using SRML.SR.SaveSystem.Data;
 using SRML.SR.SaveSystem;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace MoreVaccing.Components
 {
@@ -25,13 +20,18 @@ namespace MoreVaccing.Components
 
         public void ReadData(CompoundDataPiece piece)
         {
-            shouldFeralize = piece.HasPiece("shouldFeralize") ? piece.GetValue<bool>("shouldFeralize") : true;
-            if (shouldFeralize)
+            try
             {
-                if (!slimeFeral.IsFeral())
-                    slimeFeral.SetFeral();
+                shouldFeralize = !piece.HasPiece("shouldFeralize") || piece.GetValue<bool>("shouldFeralize");
+                if (shouldFeralize)
+                    if (!slimeFeral.IsFeral())
+                        slimeFeral.SetFeral();
+                Destroy(this);
             }
-            Destroy(this);
+            catch (Exception e)
+            {
+                Main.ModConsole.Log(e.ToString());
+            }
         }
     }
 }

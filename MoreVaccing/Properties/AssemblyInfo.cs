@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MoreVaccing")]
 [assembly: AssemblyDescription("Allows you to pick up things you normally aren't able to pickup, such as largos and gold and lucky slimes, and stops them from fleeing!")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("veesus mikel heir and FruitsyOG")]
+[assembly: AssemblyCompany("veesus mikel heir and YLohkuhl")]
 [assembly: AssemblyProduct("MoreVaccing")]
-[assembly: AssemblyCopyright("Copyright © veesus mikel heir and FruitsyOG 2019")]
+[assembly: AssemblyCopyright("Copyright © veesus mikel heir and YLohkuhl 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.1.0")]
-[assembly: AssemblyFileVersion("1.1.1")]
+[assembly: AssemblyVersion("1.1.2.0")]
+[assembly: AssemblyFileVersion("1.1.2")]

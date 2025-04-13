@@ -126,63 +126,6 @@ namespace MoreVaccing
             }
         }
 
-        public override void PostLoad()
-        {
-            foreach (var v in Identifiable.SLIME_CLASS.Concat(Identifiable.LARGO_CLASS))
-                AmmoRegistry.RegisterSiloAmmo(SiloStorage.StorageType.NON_SLIMES, v);
-
-            if (Config.ALLOW_TOY_VACCING)
-            {
-                foreach (var prefab in GameContext.Instance.LookupDirector.identifiablePrefabs)
-                {
-                    if (!prefab)
-                        continue;
-
-                    var identifiable = Identifiable.GetId(prefab);
-                    if (Identifiable.IsToy(identifiable))
-                    {
-                        prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
-                        AmmoRegistry.RegisterPlayerAmmo(PlayerState.AmmoMode.DEFAULT, identifiable);
-                        LookupRegistry.RegisterVacEntry(identifiable, Color.clear, null);
-                    }
-                }
-            }
-
-            if (Config.ALLOW_CRATE_VACCING)
-            {
-                foreach (var prefab in GameContext.Instance.LookupDirector.identifiablePrefabs)
-                {
-                    if (!prefab)
-                        continue;
-
-                    var identifiable = Identifiable.GetId(prefab);
-                    if (prefab.name.StartsWith("crate") || Identifiable.STANDARD_CRATE_CLASS.Contains(identifiable))
-                    {
-                        prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
-                        AmmoRegistry.RegisterPlayerAmmo(PlayerState.AmmoMode.DEFAULT, identifiable);
-                        LookupRegistry.RegisterVacEntry(identifiable, Color.clear, null);
-                        TranslationPatcher.AddActorTranslation("l." + identifiable.ToString().ToLower(), identifiable.ToString().ToPascalCase().Replace("_01", "").Replace("_", " "));
-                    }
-                }
-            }
-
-            if (Config.ALLOW_LARGO_VACCING)
-            {
-                foreach (var prefab in GameContext.Instance.LookupDirector.identifiablePrefabs)
-                {
-                    if (!prefab)
-                        continue;
-
-                    var identifiable = Identifiable.GetId(prefab);
-                    if (Identifiable.IsLargo(identifiable))
-                    {
-                        prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
-                        AmmoRegistry.RegisterPlayerAmmo(PlayerState.AmmoMode.DEFAULT, identifiable);
-                        LookupRegistry.RegisterVacEntry(identifiable, Color.clear, null);
-                    }
-                }
-            }
-        }
 
         /*static void OnSecretStylesEnabled()
         {

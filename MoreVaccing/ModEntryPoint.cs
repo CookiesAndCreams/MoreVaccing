@@ -19,9 +19,6 @@ namespace MoreVaccing
     [ConfigFile("MoreVaccing")]
     internal static class Config
     {
-        public static bool ALLOW_LARGO_VACCING = true;
-        public static bool ALLOW_CRATE_VACCING = true;
-        public static bool ALLOW_TOY_VACCING = true;
         public static bool ALLOW_TARR_VACCING = true;
 
         public static bool PREVENT_GOLD_FLEEING = true;
